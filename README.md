@@ -373,7 +373,3 @@ When adding a live provider, define:
 - attribution and licensing requirements
 - credential placement and request limits
 - whether the data is observational, modeled, reported, or officially verified
-
-## License
-
-No software license has been selected for this repository yet. Public visibility alone does not grant permission to copy, modify, or redistribute the code. Add an explicit `LICENSE` file before accepting external contributions or describing KALASAG as open source.
