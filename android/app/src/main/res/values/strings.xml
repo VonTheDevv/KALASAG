@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">KALASAG</string>
+    <string name="title_activity_main">KALASAG</string>
+    <string name="package_name">com.kalasagph.app</string>
+    <string name="custom_url_scheme">com.kalasagph.app</string>
+    <string name="channel_family_activity_name">Family activity</string>
+    <string name="channel_family_activity_description">Driving status and routine family safety updates</string>
+    <string name="channel_family_danger_name">Family danger alerts</string>
+    <string name="channel_family_danger_description">Urgent alerts from family members who need help</string>
+    <string name="family_sync_notification_title">Family safety update needed</string>
+    <string name="family_sync_notification_body">Open KALASAG to check the latest authoritative status of your family.</string>
+    <string name="driving_notification_title">Driving Mode is active</string>
+    <string name="driving_notification_body">KALASAG is securely sharing your latest location with your family.</string>
+    <string name="driving_notification_stop">Stop driving</string>
+    <string name="driving_notification_stopping">Stopping Driving Mode and closing the secure family session…</string>
+    <string name="driving_restore_title">Resume Driving Mode</string>
+    <string name="driving_restore_body">Open KALASAG to resume secure family location sharing after the device restart.</string>
+    <string name="accessibility_service_label">KALASAG safety continuity</string>
+    <string name="accessibility_service_description">Optional background safety continuity. KALASAG does not read screen content, typed text, gestures, or activity from other apps.</string>
+</resources>

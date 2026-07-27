@@ -1,0 +1,45 @@
+[Unit]
+Description=KALASAG authenticated news source relay
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=kalasag-news-relay
+Group=kalasag-news-relay
+Environment=NODE_ENV=production
+Environment=NEWS_SOURCE_RELAY_HOST=127.0.0.1
+Environment=NEWS_SOURCE_RELAY_PORT=8791
+EnvironmentFile=/etc/kalasag/news-source-relay.env
+ExecStart=/usr/bin/node --use-system-ca /opt/kalasagph/news-relay/current/server/news-source-relay.mjs
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=10s
+UMask=0027
+
+CapabilityBoundingSet=
+AmbientCapabilities=
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+ProcSubset=pid
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+LockPersonality=true
+SystemCallArchitectures=native
+MemoryHigh=128M
+MemoryMax=160M
+TasksMax=48
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

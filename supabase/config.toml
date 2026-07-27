@@ -1,0 +1,19 @@
+project_id = "arkvqihazxrfdxuwzqur"
+
+[functions.live-data]
+verify_jwt = true
+
+[functions.family-alert-dispatch]
+verify_jwt = true
+
+[functions.news-ingest]
+verify_jwt = true
+
+# Browser WebSockets cannot attach an Authorization header. This endpoint is
+# intentionally exempted at the gateway and verifies the user's access token
+# from one bounded first WSS data frame before subscribing it to the feed.
+[functions.ais-relay]
+verify_jwt = false
+
+[edge_runtime]
+policy = "per_worker"

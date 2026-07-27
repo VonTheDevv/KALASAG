@@ -1,0 +1,37 @@
+[Unit]
+Description=KALASAG bounded live hazard feed relay
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=kalasag
+Group=kalasag
+Environment=NODE_ENV=production
+Environment=STORM_RELAY_HOST=127.0.0.1
+Environment=STORM_RELAY_PORT=8790
+ExecStart=/usr/bin/node --use-system-ca /usr/local/lib/kalasag/storm-relay.mjs
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=10s
+UMask=0027
+
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+LockPersonality=true
+MemoryHigh=160M
+MemoryMax=192M
+TasksMax=64
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,37 @@
+[Unit]
+Description=KALASAG trusted family alert dispatcher
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=kalasag
+Group=kalasag
+WorkingDirectory=/opt/kalasagph/source
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/kalasag/family-alert-worker.env
+ExecStart=/usr/bin/node --use-system-ca /opt/kalasagph/source/server/family-alert-worker.mjs
+Restart=always
+RestartSec=3s
+TimeoutStopSec=10s
+UMask=0077
+
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=strict
+LockPersonality=true
+MemoryHigh=128M
+MemoryMax=160M
+TasksMax=64
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target
